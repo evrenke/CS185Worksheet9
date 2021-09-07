@@ -1,0 +1,58 @@
+    1  passwd
+    2  exit
+    3  history cmds.log
+    4  history > cmds.log
+    5  ggg 
+    6  dfff 
+    7  ls
+    8  gzip -d amazon_Reviews_us_Books_v1_02.tsv.gz
+    9  gzip -d amazon_reviews_us_Books_v1_02.tsv.gz
+   10  ls
+   11  vi amazon_reviews_us_Books_v1_02.tsv
+   12  ls
+   13  ls
+   14  gzip -d amazon_reviews_us_Books_v1_02.tsv.gz
+   15  ls
+   16  grep Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   17  ls
+   18  grep N amazon_reviews_us_Books_v1_02.tsv > Nverified.txt
+   19  wc Yverified.txt
+   20  wc Nverified.txt
+   21  ls
+   22  nano amazon_reviews_us_Books_v1_02.tsv
+   23  grep -w [\tY\tY\t]|[\tN\tY\t] amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   24  grep -w \tY\tY\t|\tN\tY\t amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   25  grep -w (\tY\tY\t)|(\tN\tY\t) amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   26  grep -w Y\tY|N\tY amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   27  grep -w [Y\tY]|[N\tY] amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   28* grep -w Y\tY|N\tY amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   29  grep -w (Y\tY)|(N\tY) amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   30  grep (Y\tY)|(N\tY) amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   31  grep -w Y$'\t'Y)|N$'\t'Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   32  grep -w Y$'\t'Y|N$'\t'Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   33  grep -w "Y$'\t'Y"|"N$'\t'Y" amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   34  grep Y$'\t'Y|N$'\t'Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   35  grep -c -w [YN][:blank:]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   36  grep -c -w [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   37  ls
+   38  nano Yverified.txt
+   39  grep -c -w -v [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Nverified.txt
+   40  nano Nverified.txt
+   41  wc Yverifiex.txt > count.txt
+   42  wc Yverified.txt > count.txt
+   43  wc Nverified.txt >> count.txt
+   44  cat count.txt
+   45  grep -c -w [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   46  grep -w [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   47  grep -w -v [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Nverified.txt
+   48  wc Yverified.txt
+   49  wc Nverified.txt
+   50  ls
+   51  rm Yverified.txt
+   52  grep -w [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   53  wc Yverified.txt
+   54  nano amazon_reviews_us_Books_v1_02.tsv
+   55  wc Yverified.txt > count.txt
+   56  wc Nverified.txt >> count.txt
+   57  cat count.txt
+   58  history > cmds.log
