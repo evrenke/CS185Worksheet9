@@ -1,0 +1,341 @@
+Script started on 2021-09-13 00:45:22+00:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+
+QUESTION 1: HOME DIRECTORY
+What is your home directory?  How did you find out (commands used)?
+
+The cd command takes me to the home directory, which is under home directory under root
+
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ cd [K
+
+QUESTION 2: MY UID
+ What is your UID?  How did you find out (command used)?
+
+The ls /etc/passwd command shows all users registered and their info,
+near the end keskin is shown with 1001 UID.
+
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ ls[K[Kcat e[Ke[K/etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:110:1::/var/cache/pollinate:/bin/false
+sshd:x:111:65534::/run/sshd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+instr1:x:1000:1000:langston:/home/instr1:/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+mysql:x:112:117:MySQL Server,,,:/nonexistent:/bin/false
+keskin:x:1001:1001:,,,:/home/keskin:/bin/bash
+
+QUESTION 3: USER GROUP
+To what group(s) do you belong?  How did you find out?
+
+NOTE: The command for this question was added into the text file manually
+Using egrep the groups that I belong to can be seen by searching the /etc/group file
+In this case, I did not have any groups I belonged to
+
+keskin@f6linux6:~$ egrep -i "^keskin" /etc/group
+keskin:x:1001:
+
+QUESTION 4: DIRECTORY CONTROL
+Make a directory "temp". If you remove execute permission for yourself
+from this temp directory (see chmod man page), are you still allowed
+to create files in that directory?
+Can you cd into it?  Can you "ls" it?  Can you "ls -l" it?
+
+If I create a directory, I cannot use cd to enter it without execution permission
+But I can see the directory listed in its location, for having read access to it
+
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ mkdir temp
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ chmod -x temp
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ cd temp
+bash: cd: temp: Permission denied
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ ls
+Nverified.txt  a1.txt                             cmds.log   [0m[01;34mtemp[0m
+Yverified.txt  amazon_reviews_us_Books_v1_02.tsv  count.txt
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ ls -l te[K[K[K
+total 6325616
+-rw-rw-r-- 1 keskin keskin 2976071714 Sep  7 03:23 Nverified.txt
+-rw-rw-r-- 1 keskin keskin  262630816 Sep  7 03:25 Yverified.txt
+-rw-rw-r-- 1 keskin keskin          0 Sep 13 00:45 a1.txt
+-rw-rw-r-- 1 keskin keskin 3238702530 Nov 24  2017 amazon_reviews_us_Books_v1_02.tsv
+-rw-rw-r-- 1 keskin keskin       2614 Sep  7 03:32 cmds.log
+-rw-rw-r-- 1 keskin keskin        155 Sep  7 03:34 count.txt
+drw-rw-r-- 2 keskin keskin       4096 Sep 13 01:00 [0m[01;34mtemp[0m
+
+QUESTION 5: MV AND CP FOR DIRECTORIES
+Are you allowed to "mv" a directory?  Are you allowed to "cp" a
+   directory?  If you want to cp an entire directory, how would you do it?
+
+mv and cp are allowed for directories, meaning directories can be moved and copied
+BUT for cp, since the directory can hold multiple files the cp command has to be recursive
+the -r flag is needed for this
+
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ mv coun[K[K[K[K[K[K[Kmv temp temp2
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ cp temp2
+cp: missing destination file operand after 'temp2'
+Try 'cp --help' for more information.
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ cp temp33[K[K2 temp3
+cp: -r not specified; omitting directory 'temp2'
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ cp -r temp2 temp3
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ ls
+Nverified.txt  a1.txt                             cmds.log   [0m[01;34mtemp2[0m
+Yverified.txt  amazon_reviews_us_Books_v1_02.tsv  count.txt  [01;34mtemp3[0m
+
+QUESTION 6: MEMORY AND CPU IN /proc/
+Using only "ls" (and maybe "grep"), can you find out which file under
+directory /proc/ contains information about memory (mem) on your
+server? Which file contains information about the cpu's on your server?
+
+The /proc/ directory holds files about various system info
+including memory in meminfo and cpu in cpuinfo
+
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ cd /proc/
+]0;keskin@f6linux6: /prockeskin@f6linux6:/proc$ ls
+[0m[01;34m1[0m       [01;34m1311[0m    [01;34m195[0m     [01;34m276[0m     [01;34m308138[0m  [01;34m368303[0m  [01;34m432[0m  [01;34m593[0m    [01;34m91[0m
+[01;34m10[0m      [01;34m1318[0m    [01;34m196[0m     [01;34m277[0m     [01;34m308139[0m  [01;34m369[0m     [01;34m434[0m  [01;34m6[0m      [01;34m910[0m
+[01;34m100[0m     [01;34m1319[0m    [01;34m197[0m     [01;34m277105[0m  [01;34m308140[0m  [01;34m369215[0m  [01;34m435[0m  [01;34m60[0m     [01;34m912[0m
+[01;34m101[0m     [01;34m132[0m     [01;34m198[0m     [01;34m278[0m     [01;34m308141[0m  [01;34m37[0m      [01;34m436[0m  [01;34m61343[0m  [01;34m913[0m
+[01;34m102[0m     [01;34m1320[0m    [01;34m199[0m     [01;34m279[0m     [01;34m308142[0m  [01;34m370[0m     [01;34m437[0m  [01;34m61346[0m  [01;34m92[0m
+[01;34m1036[0m    [01;34m1324[0m    [01;34m2[0m       [01;34m28[0m      [01;34m308143[0m  [01;34m370058[0m  [01;34m438[0m  [01;34m62[0m     [01;34m927[0m
+[01;34m104[0m     [01;34m1332[0m    [01;34m20[0m      [01;34m280[0m     [01;34m308144[0m  [01;34m371[0m     [01;34m439[0m  [01;34m63[0m     [01;34m93[0m
+[01;34m105[0m     [01;34m1336[0m    [01;34m200[0m     [01;34m281[0m     [01;34m308145[0m  [01;34m371297[0m  [01;34m44[0m   [01;34m64[0m     [01;34m931[0m
+[01;34m1058[0m    [01;34m134[0m     [01;34m201[0m     [01;34m282[0m     [01;34m308146[0m  [01;34m372[0m     [01;34m440[0m  [01;34m65[0m     [01;34m934[0m
+[01;34m106[0m     [01;34m135[0m     [01;34m202[0m     [01;34m282596[0m  [01;34m308147[0m  [01;34m372088[0m  [01;34m441[0m  [01;34m656[0m    [01;34m935[0m
+[01;34m1069[0m    [01;34m136[0m     [01;34m203[0m     [01;34m284[0m     [01;34m308148[0m  [01;34m373342[0m  [01;34m442[0m  [01;34m657[0m    [01;34m937[0m
+[01;34m107[0m     [01;34m1366[0m    [01;34m204[0m     [01;34m285[0m     [01;34m308149[0m  [01;34m373354[0m  [01;34m443[0m  [01;34m658[0m    [01;34m938[0m
+[01;34m1072[0m    [01;34m137[0m     [01;34m206[0m     [01;34m286[0m     [01;34m308150[0m  [01;34m374[0m     [01;34m444[0m  [01;34m66[0m     [01;34m94[0m
+[01;34m108[0m     [01;34m1373[0m    [01;34m207[0m     [01;34m286235[0m  [01;34m308151[0m  [01;34m375[0m     [01;34m446[0m  [01;34m668[0m    [01;34m942[0m
+[01;34m1082[0m    [01;34m138[0m     [01;34m208[0m     [01;34m287[0m     [01;34m308160[0m  [01;34m376[0m     [01;34m447[0m  [01;34m671[0m    [01;34m946[0m
+[01;34m1097[0m    [01;34m1386[0m    [01;34m209[0m     [01;34m287945[0m  [01;34m308387[0m  [01;34m376601[0m  [01;34m448[0m  [01;34m672[0m    [01;34m947[0m
+[01;34m11[0m      [01;34m1389[0m    [01;34m21[0m      [01;34m288[0m     [01;34m309[0m     [01;34m376734[0m  [01;34m449[0m  [01;34m68[0m     [01;34m949[0m
+[01;34m110[0m     [01;34m1391[0m    [01;34m210[0m     [01;34m288744[0m  [01;34m309533[0m  [01;34m377[0m     [01;34m45[0m   [01;34m686[0m    [01;34m95[0m
+[01;34m1108[0m    [01;34m1394[0m    [01;34m211579[0m  [01;34m29[0m      [01;34m310[0m     [01;34m378[0m     [01;34m450[0m  [01;34m687[0m    [01;34m951[0m
+[01;34m111[0m     [01;34m14[0m      [01;34m212[0m     [01;34m290[0m     [01;34m311[0m     [01;34m38[0m      [01;34m452[0m  [01;34m688[0m    [01;34m95296[0m
+[01;34m112[0m     [01;34m140[0m     [01;34m213[0m     [01;34m291[0m     [01;34m312[0m     [01;34m380[0m     [01;34m453[0m  [01;34m689[0m    [01;34m955[0m
+[01;34m113[0m     [01;34m1408[0m    [01;34m214[0m     [01;34m292[0m     [01;34m313080[0m  [01;34m380394[0m  [01;34m454[0m  [01;34m69[0m     [01;34m959[0m
+[01;34m1130[0m    [01;34m141[0m     [01;34m215[0m     [01;34m292257[0m  [01;34m314[0m     [01;34m380397[0m  [01;34m455[0m  [01;34m690[0m    [01;34m96[0m
+[01;34m1131[0m    [01;34m142[0m     [01;34m216[0m     [01;34m293[0m     [01;34m315[0m     [01;34m381[0m     [01;34m456[0m  [01;34m692[0m    [01;34m97[0m
+[01;34m1132[0m    [01;34m143[0m     [01;34m217427[0m  [01;34m294[0m     [01;34m316[0m     [01;34m382[0m     [01;34m458[0m  [01;34m693[0m    [01;34m98[0m
+[01;34m1133[0m    [01;34m1434[0m    [01;34m218[0m     [01;34m295[0m     [01;34m317[0m     [01;34m382053[0m  [01;34m459[0m  [01;34m696[0m    [01;34m99[0m
+[01;34m1134[0m    [01;34m143597[0m  [01;34m219[0m     [01;34m29573[0m   [01;34m318[0m     [01;34m382591[0m  [01;34m46[0m   [01;34m697[0m    buddyinfo
+[01;34m1135[0m    [01;34m144[0m     [01;34m219332[0m  [01;34m296[0m     [01;34m32[0m      [01;34m382710[0m  [01;34m460[0m  [01;34m70[0m     [01;34mbus[0m
+[01;34m1136[0m    [01;34m146[0m     [01;34m219552[0m  [01;34m29633[0m   [01;34m320[0m     [01;34m382719[0m  [01;34m461[0m  [01;34m702[0m    cgroups
+[01;34m113944[0m  [01;34m147[0m     [01;34m22[0m      [01;34m296549[0m  [01;34m321[0m     [01;34m382814[0m  [01;34m462[0m  [01;34m703[0m    cmdline
+[01;34m114[0m     [01;34m148[0m     [01;34m220[0m     [01;34m297[0m     [01;34m322[0m     [01;34m382822[0m  [01;34m464[0m  [01;34m704[0m    consoles
+[01;34m1143[0m    [01;34m149[0m     [01;34m221[0m     [01;34m298[0m     [01;34m323[0m     [01;34m382823[0m  [01;34m465[0m  [01;34m707[0m    cpuinfo
+[01;34m1146[0m    [01;34m15[0m      [01;34m222[0m     [01;34m299[0m     [01;34m324[0m     [01;34m382825[0m  [01;34m466[0m  [01;34m708[0m    crypto
+[01;34m1152[0m    [01;34m150[0m     [01;34m224[0m     [01;34m3[0m       [01;34m324732[0m  [01;34m382826[0m  [01;34m467[0m  [01;34m709[0m    [01;36mdevice-tree[0m
+[01;34m1153[0m    [01;34m1505[0m    [01;34m224879[0m  [01;34m30[0m      [01;34m325[0m     [01;34m382835[0m  [01;34m468[0m  [01;34m71[0m     devices
+[01;34m1154[0m    [01;34m152[0m     [01;34m224880[0m  [01;34m300[0m     [01;34m326[0m     [01;34m382838[0m  [01;34m47[0m   [01;34m711[0m    diskstats
+[01;34m1155[0m    [01;34m153[0m     [01;34m225[0m     [01;34m302[0m     [01;34m327[0m     [01;34m382839[0m  [01;34m470[0m  [01;34m713[0m    dma
+[01;34m1156[0m    [01;34m154[0m     [01;34m226[0m     [01;34m303[0m     [01;34m328[0m     [01;34m383[0m     [01;34m471[0m  [01;34m714[0m    [01;34mdriver[0m
+[01;34m1157[0m    [01;34m155[0m     [01;34m227[0m     [01;34m304[0m     [01;34m328385[0m  [01;34m383338[0m  [01;34m472[0m  [01;34m71899[0m  execdomains
+[01;34m1159[0m    [01;34m156[0m     [01;34m228[0m     [01;34m305[0m     [01;34m329[0m     [01;34m383354[0m  [01;34m473[0m  [01;34m719[0m    fb
+[01;34m116[0m     [01;34m1570[0m    [01;34m229[0m     [01;34m306[0m     [01;34m33[0m      [01;34m383356[0m  [01;34m474[0m  [01;34m72[0m     filesystems
+[01;34m1160[0m    [01;34m158[0m     [01;34m23[0m      [01;34m308[0m     [01;34m330[0m     [01;34m383358[0m  [01;34m475[0m  [01;34m723[0m    [01;34mfs[0m
+[01;34m1164[0m    [01;34m159[0m     [01;34m230[0m     [01;34m308079[0m  [01;34m332[0m     [01;34m383465[0m  [01;34m476[0m  [01;34m726[0m    interrupts
+[01;34m1165[0m    [01;34m16[0m      [01;34m231[0m     [01;34m308081[0m  [01;34m332517[0m  [01;34m383466[0m  [01;34m477[0m  [01;34m728[0m    iomem
+[01;34m1166[0m    [01;34m160[0m     [01;34m232[0m     [01;34m308086[0m  [01;34m333[0m     [01;34m383546[0m  [01;34m478[0m  [01;34m729[0m    ioports
+[01;34m117[0m     [01;34m161[0m     [01;34m233[0m     [01;34m308087[0m  [01;34m333074[0m  [01;34m383547[0m  [01;34m479[0m  [01;34m731[0m    [01;34mirq[0m
+[01;34m118[0m     [01;34m162[0m     [01;34m234[0m     [01;34m308088[0m  [01;34m334[0m     [01;34m383776[0m  [01;34m48[0m   [01;34m734[0m    kallsyms
+[01;34m1183[0m    [01;34m16354[0m   [01;34m236[0m     [01;34m308089[0m  [01;34m335[0m     [01;34m383987[0m  [01;34m480[0m  [01;34m738[0m    kcore
+[01;34m119[0m     [01;34m164[0m     [01;34m237[0m     [01;34m308090[0m  [01;34m336[0m     [01;34m384[0m     [01;34m481[0m  [01;34m74[0m     key-users
+[01;34m1191[0m    [01;34m1647[0m    [01;34m238[0m     [01;34m308091[0m  [01;34m338[0m     [01;34m386[0m     [01;34m482[0m  [01;34m740[0m    keys
+[01;34m1193[0m    [01;34m1648[0m    [01;34m239[0m     [01;34m308092[0m  [01;34m339[0m     [01;34m387[0m     [01;34m483[0m  [01;34m744[0m    kmsg
+[01;34m1198[0m    [01;34m1649[0m    [01;34m24[0m      [01;34m308093[0m  [01;34m34[0m      [01;34m388[0m     [01;34m484[0m  [01;34m747[0m    kpagecgroup
+[01;34m12[0m      [01;34m164968[0m  [01;34m240[0m     [01;34m308094[0m  [01;34m340[0m     [01;34m389[0m     [01;34m485[0m  [01;34m75[0m     kpagecount
+[01;34m120[0m     [01;34m164970[0m  [01;34m242[0m     [01;34m308095[0m  [01;34m340000[0m  [01;34m39[0m      [01;34m486[0m  [01;34m750[0m    kpageflags
+[01;34m1203[0m    [01;34m165[0m     [01;34m243[0m     [01;34m308096[0m  [01;34m340560[0m  [01;34m390[0m     [01;34m487[0m  [01;34m751[0m    loadavg
+[01;34m122[0m     [01;34m1650[0m    [01;34m244[0m     [01;34m308097[0m  [01;34m341[0m     [01;34m392[0m     [01;34m488[0m  [01;34m752[0m    locks
+[01;34m1225[0m    [01;34m1651[0m    [01;34m245[0m     [01;34m308098[0m  [01;34m342[0m     [01;34m393[0m     [01;34m489[0m  [01;34m753[0m    mdstat
+[01;34m1227[0m    [01;34m1652[0m    [01;34m246[0m     [01;34m308099[0m  [01;34m344[0m     [01;34m394[0m     [01;34m49[0m   [01;34m754[0m    meminfo
+[01;34m123[0m     [01;34m1653[0m    [01;34m247[0m     [01;34m308100[0m  [01;34m345[0m     [01;34m395[0m     [01;34m490[0m  [01;34m755[0m    misc
+[01;34m1230[0m    [01;34m1654[0m    [01;34m248[0m     [01;34m308101[0m  [01;34m346[0m     [01;34m396[0m     [01;34m491[0m  [01;34m76[0m     modules
+[01;34m1231[0m    [01;34m1655[0m    [01;34m248954[0m  [01;34m308102[0m  [01;34m346930[0m  [01;34m398[0m     [01;34m492[0m  [01;34m77[0m     [01;36mmounts[0m
+[01;34m1233[0m    [01;34m1656[0m    [01;34m249[0m     [01;34m308103[0m  [01;34m347[0m     [01;34m399[0m     [01;34m493[0m  [01;34m776[0m    [01;36mnet[0m
+[01;34m124[0m     [01;34m1657[0m    [01;34m250[0m     [01;34m308104[0m  [01;34m348[0m     [01;34m4[0m       [01;34m497[0m  [01;34m78[0m     pagetypeinfo
+[01;34m1241[0m    [01;34m1658[0m    [01;34m250559[0m  [01;34m308105[0m  [01;34m348087[0m  [01;34m40[0m      [01;34m498[0m  [01;34m8[0m      partitions
+[01;34m1243[0m    [01;34m1659[0m    [01;34m250563[0m  [01;34m308106[0m  [01;34m348750[0m  [01;34m400[0m     [01;34m499[0m  [01;34m80[0m     [01;34mpowerpc[0m
+[01;34m1245[0m    [01;34m166[0m     [01;34m251[0m     [01;34m308107[0m  [01;34m35[0m      [01;34m401[0m     [01;34m50[0m   [01;34m81[0m     [01;36mppc64[0m
+[01;34m1246[0m    [01;34m167[0m     [01;34m252[0m     [01;34m308108[0m  [01;34m350[0m     [01;34m402[0m     [01;34m500[0m  [01;34m818[0m    [01;34mpressure[0m
+[01;34m1248[0m    [01;34m168[0m     [01;34m252872[0m  [01;34m308109[0m  [01;34m350069[0m  [01;34m404[0m     [01;34m501[0m  [01;34m82[0m     [01;36mrtas[0m
+[01;34m125[0m     [01;34m17[0m      [01;34m252882[0m  [01;34m308110[0m  [01;34m351[0m     [01;34m405[0m     [01;34m502[0m  [01;34m820[0m    sched_debug
+[01;34m1251[0m    [01;34m170[0m     [01;34m254[0m     [01;34m308111[0m  [01;34m352[0m     [01;34m406[0m     [01;34m51[0m   [01;34m821[0m    schedstat
+[01;34m1254[0m    [01;34m171[0m     [01;34m255[0m     [01;34m308112[0m  [01;34m353[0m     [01;34m407[0m     [01;34m52[0m   [01;34m822[0m    [01;34mscsi[0m
+[01;34m1259[0m    [01;34m172[0m     [01;34m256[0m     [01;34m308113[0m  [01;34m353259[0m  [01;34m408[0m     [01;34m53[0m   [01;34m823[0m    [01;36mself[0m
+[01;34m126[0m     [01;34m173[0m     [01;34m256109[0m  [01;34m308114[0m  [01;34m354[0m     [01;34m41[0m      [01;34m54[0m   [01;34m83[0m     slabinfo
+[01;34m1261[0m    [01;34m174[0m     [01;34m257[0m     [01;34m308115[0m  [01;34m356[0m     [01;34m410[0m     [01;34m548[0m  [01;34m84[0m     softirqs
+[01;34m1263[0m    [01;34m176[0m     [01;34m257823[0m  [01;34m308116[0m  [01;34m357[0m     [01;34m411[0m     [01;34m549[0m  [01;34m849[0m    stat
+[01;34m1264[0m    [01;34m177[0m     [01;34m258[0m     [01;34m308117[0m  [01;34m357995[0m  [01;34m412[0m     [01;34m55[0m   [01;34m84903[0m  swaps
+[01;34m1266[0m    [01;34m178[0m     [01;34m258827[0m  [01;34m308118[0m  [01;34m357998[0m  [01;34m413[0m     [01;34m550[0m  [01;34m854[0m    [01;34msys[0m
+[01;34m1269[0m    [01;34m179[0m     [01;34m259883[0m  [01;34m308119[0m  [01;34m358[0m     [01;34m414[0m     [01;34m551[0m  [01;34m858[0m    sysrq-trigger
+[01;34m127[0m     [01;34m18[0m      [01;34m26[0m      [01;34m308120[0m  [01;34m358002[0m  [01;34m416[0m     [01;34m552[0m  [01;34m86[0m     [01;34msysvipc[0m
+[01;34m1272[0m    [01;34m180[0m     [01;34m260[0m     [01;34m308121[0m  [01;34m358319[0m  [01;34m417[0m     [01;34m553[0m  [01;34m861[0m    [01;36mthread-self[0m
+[01;34m1274[0m    [01;34m181[0m     [01;34m261[0m     [01;34m308122[0m  [01;34m359[0m     [01;34m41742[0m   [01;34m554[0m  [01;34m864[0m    timer_list
+[01;34m128[0m     [01;34m182[0m     [01;34m261173[0m  [01;34m308123[0m  [01;34m36[0m      [01;34m418[0m     [01;34m555[0m  [01;34m87[0m     [01;34mtty[0m
+[01;34m1281[0m    [01;34m183[0m     [01;34m262[0m     [01;34m308124[0m  [01;34m360[0m     [01;34m419[0m     [01;34m556[0m  [01;34m88[0m     uptime
+[01;34m1283[0m    [01;34m184[0m     [01;34m263[0m     [01;34m308125[0m  [01;34m360101[0m  [01;34m42[0m      [01;34m557[0m  [01;34m884[0m    version
+[01;34m1288[0m    [01;34m185[0m     [01;34m264[0m     [01;34m308126[0m  [01;34m362[0m     [01;34m420[0m     [01;34m56[0m   [01;34m885[0m    version_signature
+[01;34m129[0m     [01;34m186[0m     [01;34m266[0m     [01;34m308127[0m  [01;34m363[0m     [01;34m422[0m     [01;34m562[0m  [01;34m886[0m    vmallocinfo
+[01;34m1290[0m    [01;34m187[0m     [01;34m267[0m     [01;34m308128[0m  [01;34m364[0m     [01;34m423[0m     [01;34m563[0m  [01;34m887[0m    vmstat
+[01;34m1292[0m    [01;34m188[0m     [01;34m268[0m     [01;34m308129[0m  [01;34m365[0m     [01;34m424[0m     [01;34m565[0m  [01;34m888[0m    zoneinfo
+[01;34m1293[0m    [01;34m189[0m     [01;34m269[0m     [01;34m308130[0m  [01;34m365835[0m  [01;34m425[0m     [01;34m566[0m  [01;34m89[0m
+[01;34m1294[0m    [01;34m190[0m     [01;34m27[0m      [01;34m308131[0m  [01;34m365845[0m  [01;34m426[0m     [01;34m567[0m  [01;34m890[0m
+[01;34m1298[0m    [01;34m1900[0m    [01;34m270[0m     [01;34m308132[0m  [01;34m365861[0m  [01;34m427[0m     [01;34m568[0m  [01;34m891[0m
+[01;34m1299[0m    [01;34m1902[0m    [01;34m270551[0m  [01;34m308133[0m  [01;34m365958[0m  [01;34m428[0m     [01;34m57[0m   [01;34m9[0m
+[01;34m130[0m     [01;34m191[0m     [01;34m272[0m     [01;34m308134[0m  [01;34m365970[0m  [01;34m429[0m     [01;34m577[0m  [01;34m90[0m
+[01;34m130956[0m  [01;34m192[0m     [01;34m273[0m     [01;34m308135[0m  [01;34m366[0m     [01;34m4297[0m    [01;34m58[0m   [01;34m900[0m
+[01;34m131[0m     [01;34m193[0m     [01;34m274[0m     [01;34m308136[0m  [01;34m368[0m     [01;34m430[0m     [01;34m580[0m  [01;34m901[0m
+[01;34m1310[0m    [01;34m194[0m     [01;34m275[0m     [01;34m308137[0m  [01;34m368168[0m  [01;34m431[0m     [01;34m59[0m   [01;34m903[0m
+
+QUESTION 7: MEMORY INFORMATION
+Use head to check the memory information file you found above.
+How much total memory is on your server?
+
+I used cd by accident, but head on meminfo shows the answer of the total memory
+ 4049408 KB, about 4 gigabytes
+
+]0;keskin@f6linux6: /prockeskin@f6linux6:/proc$ cd e[Kmeminfo
+bash: cd: meminfo: Not a directory
+]0;keskin@f6linux6: /prockeskin@f6linux6:/proc$ ls[K[Khead meminfo
+MemTotal:        4049408 kB
+MemFree:          287680 kB
+MemAvailable:    1038272 kB
+Buffers:          519424 kB
+Cached:           549184 kB
+SwapCached:        10688 kB
+Active:           691392 kB
+Inactive:         461824 kB
+Active(anon):      32640 kB
+Inactive(anon):    69888 kB
+
+QUESTION 8: CPU INFORMATION
+Then use tail to check the cpu information file you found above.
+How many processors are on your server? What is the processor
+architecture name? What is the processor speed in GHz?
+
+I had a typo first, but used tail to find cpu information on processor count and speed
+There are 79 processors on the server, with a clock of 4190MHZ, or about 4.2 GHZ
+
+]0;keskin@f6linux6: /prockeskin@f6linux6:/proc$ tail cpuinfoi
+tail: cannot open 'cpuinfoi' for reading: No such file or directory
+]0;keskin@f6linux6: /prockeskin@f6linux6:/proc$ tail cpuinfoi[K
+processor	: 79
+cpu		: POWER8 (architected), altivec supported
+clock		: 4190.000000MHz
+revision	: 2.0 (pvr 004d 0200)
+
+timebase	: 512000000
+platform	: pSeries
+model		: IBM,9080-MHE
+machine		: CHRP IBM,9080-MHE
+MMU		: Hash
+]0;keskin@f6linux6: /prockeskin@f6linux6:/proc$ tail -n 15 cpuinfo
+processor	: 78
+cpu		: POWER8 (architected), altivec supported
+clock		: 4190.000000MHz
+revision	: 2.0 (pvr 004d 0200)
+
+processor	: 79
+cpu		: POWER8 (architected), altivec supported
+clock		: 4190.000000MHz
+revision	: 2.0 (pvr 004d 0200)
+
+timebase	: 512000000
+platform	: pSeries
+model		: IBM,9080-MHE
+machine		: CHRP IBM,9080-MHE
+MMU		: Hash
+
+QUESTION 9: AMAZON REVIEW FILE SIZE
+What is the size in GB (GigaBytes) of the Amazon customer reviews
+uncompressed (gunzipped) file you downloaded?
+
+There are some commands of confusion on my part, returning to the home directory.
+In hindsight just typing cd without parameters would have been faster
+Using the stat command with the amazon file name,the size is shown as 3238702530 bits,
+ or 3.24 Gigabytes
+
+]0;keskin@f6linux6: /prockeskin@f6linux6:/proc$ cd ..
+]0;keskin@f6linux6: /keskin@f6linux6:/$ ls
+[0m[01;36mbin[0m   [01;34mcdrom[0m  [01;34metc[0m   [01;36mlib[0m    [01;34mlost+found[0m  [01;34mmnt[0m  [01;34mproc[0m  [01;34mrun[0m   [01;34msnap[0m  swap.img  [30;42mtmp[0m  [01;34mvar[0m
+[01;34mboot[0m  [01;34mdev[0m    [01;34mhome[0m  [01;36mlib64[0m  [01;34mmedia[0m       [01;34mopt[0m  [01;34mroot[0m  [01;36msbin[0m  [01;34msrv[0m   [01;34msys[0m       [01;34musr[0m
+]0;keskin@f6linux6: /keskin@f6linux6:/$ cd ..
+]0;keskin@f6linux6: /keskin@f6linux6:/$ ls
+[0m[01;36mbin[0m   [01;34mcdrom[0m  [01;34metc[0m   [01;36mlib[0m    [01;34mlost+found[0m  [01;34mmnt[0m  [01;34mproc[0m  [01;34mrun[0m   [01;34msnap[0m  swap.img  [30;42mtmp[0m  [01;34mvar[0m
+[01;34mboot[0m  [01;34mdev[0m    [01;34mhome[0m  [01;36mlib64[0m  [01;34mmedia[0m       [01;34mopt[0m  [01;34mroot[0m  [01;36msbin[0m  [01;34msrv[0m   [01;34msys[0m       [01;34musr[0m
+]0;keskin@f6linux6: /keskin@f6linux6:/$ [K]0;keskin@f6linux6: /keskin@f6linux6:/$ cd /
+]0;keskin@f6linux6: /keskin@f6linux6:/$ ls
+[0m[01;36mbin[0m   [01;34mcdrom[0m  [01;34metc[0m   [01;36mlib[0m    [01;34mlost+found[0m  [01;34mmnt[0m  [01;34mproc[0m  [01;34mrun[0m   [01;34msnap[0m  swap.img  [30;42mtmp[0m  [01;34mvar[0m
+[01;34mboot[0m  [01;34mdev[0m    [01;34mhome[0m  [01;36mlib64[0m  [01;34mmedia[0m       [01;34mopt[0m  [01;34mroot[0m  [01;36msbin[0m  [01;34msrv[0m   [01;34msys[0m       [01;34musr[0m
+]0;keskin@f6linux6: /keskin@f6linux6:/$ [K]0;keskin@f6linux6: /keskin@f6linux6:/$ cd ~
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ ls
+Nverified.txt  a1.txt                             cmds.log   [0m[01;34mtemp2[0m
+Yverified.txt  amazon_reviews_us_Books_v1_02.tsv  count.txt  [01;34mtemp3[0m
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ statswap.img[K[K[K[K[K[K[K swap.img[K[K[K[K[K[K[K[Kamazon_reviews_us_Books_v1_02.tsv
+
+Command 'stats' not found, did you mean:
+
+  command 'states' from deb enscript (1.6.5.90-3)
+  command 'statfs' from deb gocryptfs (1.7.1-1)
+  command 'stat' from deb coreutils (8.30-3ubuntu2)
+  command 'kstats' from deb aircrack-ng (1:1.6-4)
+  command 'sats' from deb mpdtoys (0.25.0)
+
+Try: apt install <deb name>
+
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ stats amazon_reviews_us_Books_v1_02.tsv[1P amazon_reviews_us_Books_v1_02.tsv
+  File: amazon_reviews_us_Books_v1_02.tsv
+  Size: 3238702530	Blocks: 6325600    IO Block: 4096   regular file
+Device: 802h/2050d	Inode: 4328216     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1001/  keskin)   Gid: ( 1001/  keskin)
+Access: 2021-09-07 02:25:10.520576179 +0000
+Modify: 2017-11-24 15:10:21.000000000 +0000
+Change: 2021-09-01 09:22:15.681965427 +0000
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ ^C
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ ^C
+
+QUESTION 10: COUNTING "GREAT" IN THE AMAZON REVIEWS
+Search in the Amazon customer reviews file for the case-insensitive
+word "great" (i.e. "Great" or "GREAT" also count). How many reviews
+contain this word? You can use grep (case-insensitive) and wc.
+
+NOTE:This section was manually cleaned up
+Searching the individual count of "great" and finding the word count required piped commands
+grep with -i flag finds the lines of "great" with case-insensitivity from the file
+and wc -l gets the word count from the lines found in grep
+The result is 857172 total lines of "great" with case-insensitivity
+which is the number of reviews with the word great
+
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ ls
+Nverified.txt  a1.txt                             cmds.log   [0m[01;34mtemp2[0m
+Yverified.txt  amazon_reviews_us_Books_v1_02.tsv  count.txt  [01;34mtemp3[0m
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ grep -i great amazon_reviews_us_Books_v1_02.tsv | wc -l
+857172
+]0;keskin@f6linux6: ~keskin@f6linux6:~$ exit
+
+Script done on 2021-09-13 03:03:23+00:00 [COMMAND_EXIT_CODE="0"]
