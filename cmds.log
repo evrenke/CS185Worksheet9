@@ -171,5 +171,14 @@
   171  nano amazon_reviews_us_Books_v1_02.tsv
   172  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | sort -nr | head -n 3
   173  sort -nk4 amazon_reviews_us_Books_v1_02.tsv| cut -f 4 | uniq -c | sort -nr | head -n 3
-  174  script w3.txt
-  175  history > cmds.log
+  174  ls
+  175  nano amazon_reviews_us_Books_v1_02.tsv
+  176  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | sort -nr | head -n 3
+  177  sort -nk4 amazon_reviews_us_Books_v1_02.tsv| cut -f 4 | uniq -c | sort -nr | head -n 3
+  178  sort -nk9 amazon_reviews_us_Books_v1_02.tsv | cut -f 9 | uniq -c | sort -nr | head
+  179  nano amazon_reviews_us_Books_v1_02.tsv
+  180  sort -nk9 amazon_reviews_us_Books_v1_02.tsv | cut -f 9 | uniq -c | sort -nr
+  181  sort -nk9 amazon_reviews_us_Books_v1_02.tsv | cut -f 9 | uniq -c
+  182  cut -f 9 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c
+  183  script w3.txt
+  184  history > cmds.log
