@@ -1,2 +1,11 @@
     1  script ws4.txt
     2  history > cmds.log
+    3  git add cmds.log ws4.txt
+    4  git commit -m "Committing the command log and console output of worksheet 4"
+    5  git remote add origin https://github.com/evrenke/CS185Worksheet4.git
+    6  git remote set_url origin https://github.com/evrenke/CS185Worksheet4.git
+    7  git remote set-url origin https://github.com/evrenke/CS185Worksheet4.git
+    8  git push -u origin main
+    9  git push -u origin maaster
+   10  git push -u origin master
+   11  history > cmds.log
