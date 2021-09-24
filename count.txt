@@ -1,5 +1,0 @@
-   229505  44435717 262630816 Yverified.txt
-   2876016  505733984 2976071714 Nverified.txt
-The results:
-229505 verified reviews
-2876016 unverified reviews
