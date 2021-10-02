@@ -1,2 +1,133 @@
     1  script a2.txt
     2  history > cmds.log
+    3  git add a2.txt cmds.log
+    4  git commit -m "Committing assignment 2 console output and command history"
+    5  git push origin master
+    6  git remote seturl origin https://github.com/evrenke/CS185Assignment2.git
+    7  git push origin master
+    8  git remote set-url origin https://github.com/evrenke/CS185Assignment2.git
+    9  git push origin master
+   10  history > cmds.log
+   11  nano cmds.log
+   12  history help
+   13  help history
+   14  history -a
+   15  history > cmds.log
+   16  help history
+   17  nano cmds.log
+   18  history -n
+   19  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | cut -f 1 | head -n 100 > productIDs.txt
+   20  mkdir PRODUCTS
+   21  INPUTFILE="productIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "PRODUCTS/$line.txt"; done < "$INPUTFILE"
+   22  alias l="ls -latr"
+   23  alias w="ls -la | wc"
+   24  vim ~/.bashrc
+   25  cd CUSTOMERS
+   26  w
+   27  cd
+   28  cd PRODUCTS
+   29  w
+   30  cd
+   31  cd ~/datamash-1.3
+   32  for i in {1..1000} ; do echo $i $i ;done >> c.txt
+   33  ./datamash  -W ppearson 1:2 < c.txt
+   34  ./datamashtxt
+   35  ls ../CUSTOMERS
+   36  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/470 51142763.txt
+   37  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'470 51142763.txt'
+   38  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    470 51142763.txt'
+   39  for FILE in ../CUSTOMERS; echo FILE; ./datamash  -W ppearson 1:2 ; done
+   40  echo
+   41  ls
+   42  echo TODO
+   43  for FILE in ../CUSTOMERS; echo FILE; ./datamash  -W ppearson 1:2 ; done
+   44  for FILE in ../CUSTOMERS; do echo FILE; ./datamash  -W ppearson 1:2 ; done
+   45  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 ; done
+   46  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 FILE ; done
+   47  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 < FILE ; done
+   48  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 < $FILE ; done
+   49  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  $FILE ; done
+   50  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+   51  ./datamash  -W ppearson 1:2 < ..CUSTOMERS/'    470 51142763.txt'
+   52  ls ../CUSTOMERS
+   53  ./datamash  -W ppearson 1:2 < ..CUSTOMERS/'    470 51142763.txt'
+   54  ./datamash  -W ppearson 1:2 < '..CUSTOMERS/'    470 51142763.txt''
+   55  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    470 51142763.txt'
+   56  cd
+   57  cd CUSTOMERS
+   58  nano '    470 51142763.txt'
+   59  cd
+   60  cd datamash-1.3
+   61  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    471 42800127.txt'
+   62  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+   63  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  $FILE ; done
+   64  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  '$FILE' ; done
+   65  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+   66  ./datamash  -W ppearson 1:2 < c.txt
+   67  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  ../CUSTOMERS/$FILE" ; done
+   68  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  ../CUSTOMERS/"$FILE" ; done
+   69  ../CUSTOMERS/   1797 50776149.txt
+   70  0.0003337588227034
+   71  ../CUSTOMERS/   2215 45041039.txt
+   72  0.0003337588227034
+   73  ../CUSTOMERS/   2664 52615377.txt
+   74  0.0003337588227034
+   75  ../CUSTOMERS/   9964 50732546.txt
+   76  0.0003337588227034
+   77  ../CUSTOMERS/  21922 50122160.txt
+   78  0.0003337588227034
+   79  cd
+   80  cd CUSTOMERS
+   81  ls
+   82  nano '  21922 50122160.txt'
+   83  cd
+   84  ls
+   85  cd CUSTOMERS
+   86  nano '  21922 50122160.txt'
+   87  nano '   9964 50732546.txt'
+   88  wc '   9964 50732546.txt'
+   89  wc '  21922 50122160.txt'
+   90  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+   91  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+   92  cut -f 6 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+   93  touch customerIDs.txt
+   94  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 100 > customerIDs.txt
+   95  input="customerIDs.txt"; while read -r line; do echo $line; awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
+   96  mkdir CUSTOMERS
+   97  mkdir PRODUCTS
+   98  input="customerIDs.txt"; while read -r line; do echo $line; awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
+   99  input="customerIDs.txt"; while read -r line; do awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
+  100  touch productIDs.txt
+  101  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}'| head -n 100 > productIDs.txt
+  102  input="productIDs.txt"; while read -r line; do awk -v "ID=$line" '$4 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "PRODUCTS/$line.txt"; done < "$input"
+  103  alias l="ls -latr"
+  104  alias w="ls -la | wc"
+  105  vim ~/.bashrc
+  106  cd CUSTOMERS
+  107  w
+  108  cd
+  109  cd PRODUCTS
+  110  w
+  111  cd
+  112  for i in {1..1000} ; do echo $i $i ;done >> c.txt
+  113  datamash-1.3/datamash  -W ppearson 1:2 < c.txt
+  114  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+  115  for FILE in CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+  116  for FILE in CUSTOMERS/*; do echo "$FILE"; datamash-1.3/datamash  -W ppearson 1:2 <  "$FILE" ; done
+  117  for FILE in CUSTOMERS/*; do echo "$FILE";  datamash-1.3/datamash mean 2 < "$FILE" ; done
+  118  for FILE in PRODUCTS/*; do echo "$FILE";  datamash-1.3/datamash mean 1 < "$FILE"; done
+  119  script a2.txt
+  120  history > cmds.log
+  121  git add a2.txt cmds.log
+  122  git commit -m "Committing assignment 2 console output and command history"
+  123  git push origin master
+  124  git remote seturl origin https://github.com/evrenke/CS185Assignment2.git
+  125  git push origin master
+  126  git remote set-url origin https://github.com/evrenke/CS185Assignment2.git
+  127  git push origin master
+  128  history > cmds.log
+  129  nano cmds.log
+  130  history help
+  131  help history
+  132  history -a
+  133  history > cmds.log
