@@ -1,133 +1,629 @@
-    1  script a2.txt
-    2  history > cmds.log
-    3  git add a2.txt cmds.log
-    4  git commit -m "Committing assignment 2 console output and command history"
-    5  git push origin master
-    6  git remote seturl origin https://github.com/evrenke/CS185Assignment2.git
-    7  git push origin master
-    8  git remote set-url origin https://github.com/evrenke/CS185Assignment2.git
-    9  git push origin master
-   10  history > cmds.log
-   11  nano cmds.log
-   12  history help
-   13  help history
-   14  history -a
-   15  history > cmds.log
-   16  help history
-   17  nano cmds.log
-   18  history -n
-   19  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | cut -f 1 | head -n 100 > productIDs.txt
-   20  mkdir PRODUCTS
-   21  INPUTFILE="productIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "PRODUCTS/$line.txt"; done < "$INPUTFILE"
-   22  alias l="ls -latr"
-   23  alias w="ls -la | wc"
-   24  vim ~/.bashrc
-   25  cd CUSTOMERS
-   26  w
-   27  cd
-   28  cd PRODUCTS
-   29  w
-   30  cd
-   31  cd ~/datamash-1.3
-   32  for i in {1..1000} ; do echo $i $i ;done >> c.txt
-   33  ./datamash  -W ppearson 1:2 < c.txt
-   34  ./datamashtxt
-   35  ls ../CUSTOMERS
-   36  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/470 51142763.txt
-   37  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'470 51142763.txt'
-   38  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    470 51142763.txt'
-   39  for FILE in ../CUSTOMERS; echo FILE; ./datamash  -W ppearson 1:2 ; done
-   40  echo
-   41  ls
-   42  echo TODO
-   43  for FILE in ../CUSTOMERS; echo FILE; ./datamash  -W ppearson 1:2 ; done
-   44  for FILE in ../CUSTOMERS; do echo FILE; ./datamash  -W ppearson 1:2 ; done
-   45  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 ; done
-   46  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 FILE ; done
-   47  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 < FILE ; done
-   48  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 < $FILE ; done
-   49  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  $FILE ; done
-   50  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
-   51  ./datamash  -W ppearson 1:2 < ..CUSTOMERS/'    470 51142763.txt'
-   52  ls ../CUSTOMERS
-   53  ./datamash  -W ppearson 1:2 < ..CUSTOMERS/'    470 51142763.txt'
-   54  ./datamash  -W ppearson 1:2 < '..CUSTOMERS/'    470 51142763.txt''
-   55  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    470 51142763.txt'
-   56  cd
-   57  cd CUSTOMERS
-   58  nano '    470 51142763.txt'
-   59  cd
-   60  cd datamash-1.3
-   61  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    471 42800127.txt'
-   62  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
-   63  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  $FILE ; done
-   64  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  '$FILE' ; done
-   65  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
-   66  ./datamash  -W ppearson 1:2 < c.txt
-   67  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  ../CUSTOMERS/$FILE" ; done
-   68  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  ../CUSTOMERS/"$FILE" ; done
-   69  ../CUSTOMERS/   1797 50776149.txt
-   70  0.0003337588227034
-   71  ../CUSTOMERS/   2215 45041039.txt
-   72  0.0003337588227034
-   73  ../CUSTOMERS/   2664 52615377.txt
-   74  0.0003337588227034
-   75  ../CUSTOMERS/   9964 50732546.txt
-   76  0.0003337588227034
-   77  ../CUSTOMERS/  21922 50122160.txt
-   78  0.0003337588227034
-   79  cd
-   80  cd CUSTOMERS
+    1  passwd
+    2  exit
+    3  history cmds.log
+    4  history > cmds.log
+    5  ggg 
+    6  dfff 
+    7  ls
+    8  gzip -d amazon_Reviews_us_Books_v1_02.tsv.gz
+    9  gzip -d amazon_reviews_us_Books_v1_02.tsv.gz
+   10  ls
+   11  vi amazon_reviews_us_Books_v1_02.tsv
+   12  ls
+   13  ls
+   14  gzip -d amazon_reviews_us_Books_v1_02.tsv.gz
+   15  ls
+   16  grep Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   17  ls
+   18  grep N amazon_reviews_us_Books_v1_02.tsv > Nverified.txt
+   19  wc Yverified.txt
+   20  wc Nverified.txt
+   21  ls
+   22  nano amazon_reviews_us_Books_v1_02.tsv
+   23  grep -w [\tY\tY\t]|[\tN\tY\t] amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   24  grep -w \tY\tY\t|\tN\tY\t amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   25  grep -w (\tY\tY\t)|(\tN\tY\t) amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   26  grep -w Y\tY|N\tY amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   27  grep -w [Y\tY]|[N\tY] amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   28  grep -w Y\tY|N\tY amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   29  grep -w (Y\tY)|(N\tY) amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   30  grep (Y\tY)|(N\tY) amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   31  grep -w Y$'\t'Y)|N$'\t'Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   32  grep -w Y$'\t'Y|N$'\t'Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   33  grep -w "Y$'\t'Y"|"N$'\t'Y" amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   34  grep Y$'\t'Y|N$'\t'Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   35  grep -c -w [YN][:blank:]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   36  grep -c -w [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   37  ls
+   38  nano Yverified.txt
+   39  grep -c -w -v [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Nverified.txt
+   40  nano Nverified.txt
+   41  wc Yverifiex.txt > count.txt
+   42  wc Yverified.txt > count.txt
+   43  wc Nverified.txt >> count.txt
+   44  cat count.txt
+   45  grep -c -w [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   46  grep -w [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   47  grep -w -v [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Nverified.txt
+   48  wc Yverified.txt
+   49  wc Nverified.txt
+   50  ls
+   51  rm Yverified.txt
+   52  grep -w [YN][[:blank:]]Y amazon_reviews_us_Books_v1_02.tsv > Yverified.txt
+   53  wc Yverified.txt
+   54  nano amazon_reviews_us_Books_v1_02.tsv
+   55  wc Yverified.txt > count.txt
+   56  wc Nverified.txt >> count.txt
+   57  cat count.txt
+   58  history > cmds.log
+   59  vi c
+   60  nano count.txt
+   61  git init
+   62  git add cmds.log count.txt
+   63  git commit -m "Committing command log and count file of verified and unverified reviews"
+   64  git config --global user.email "evrenkeskin@sjsu.edu"
+   65  git config --global user.name "evrenke"
+   66  git commit -m "Committing command log and count file of verified and unverified reviews"
+   67  git remote add origin https://github.com/evrenke/CS185worksheet2
+   68  git push origin master
+   69  exit
+   70  cd
+   71  cat /etc/passwd
+   72  mkdir temp
+   73  chmod -x temp
+   74  cd temp
+   75  ls
+   76  ls -l
+   77  mv temp temp2
+   78  cp temp2
+   79  cp temp2 temp3
+   80  cp -r temp2 temp3
    81  ls
-   82  nano '  21922 50122160.txt'
-   83  cd
-   84  ls
-   85  cd CUSTOMERS
-   86  nano '  21922 50122160.txt'
-   87  nano '   9964 50732546.txt'
-   88  wc '   9964 50732546.txt'
-   89  wc '  21922 50122160.txt'
-   90  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
-   91  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
-   92  cut -f 6 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
-   93  touch customerIDs.txt
-   94  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 100 > customerIDs.txt
-   95  input="customerIDs.txt"; while read -r line; do echo $line; awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
-   96  mkdir CUSTOMERS
-   97  mkdir PRODUCTS
-   98  input="customerIDs.txt"; while read -r line; do echo $line; awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
-   99  input="customerIDs.txt"; while read -r line; do awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
-  100  touch productIDs.txt
-  101  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}'| head -n 100 > productIDs.txt
-  102  input="productIDs.txt"; while read -r line; do awk -v "ID=$line" '$4 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "PRODUCTS/$line.txt"; done < "$input"
-  103  alias l="ls -latr"
-  104  alias w="ls -la | wc"
-  105  vim ~/.bashrc
-  106  cd CUSTOMERS
-  107  w
-  108  cd
-  109  cd PRODUCTS
-  110  w
-  111  cd
-  112  for i in {1..1000} ; do echo $i $i ;done >> c.txt
-  113  datamash-1.3/datamash  -W ppearson 1:2 < c.txt
-  114  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
-  115  for FILE in CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
-  116  for FILE in CUSTOMERS/*; do echo "$FILE"; datamash-1.3/datamash  -W ppearson 1:2 <  "$FILE" ; done
-  117  for FILE in CUSTOMERS/*; do echo "$FILE";  datamash-1.3/datamash mean 2 < "$FILE" ; done
-  118  for FILE in PRODUCTS/*; do echo "$FILE";  datamash-1.3/datamash mean 1 < "$FILE"; done
-  119  script a2.txt
-  120  history > cmds.log
-  121  git add a2.txt cmds.log
-  122  git commit -m "Committing assignment 2 console output and command history"
-  123  git push origin master
-  124  git remote seturl origin https://github.com/evrenke/CS185Assignment2.git
-  125  git push origin master
-  126  git remote set-url origin https://github.com/evrenke/CS185Assignment2.git
-  127  git push origin master
-  128  history > cmds.log
-  129  nano cmds.log
-  130  history help
-  131  help history
-  132  history -a
-  133  history > cmds.log
+   82  cd /proc/
+   83  ls
+   84  cd meminfo
+   85  head meminfo
+   86  tail cpuinfoi
+   87  tail cpuinfo
+   88  tail -n 15 cpuinfo
+   89  cd ..
+   90  ls
+   91  cd ..
+   92  ls
+   93  cd /
+   94  ls
+   95  cd ~
+   96  ls
+   97  stats amazon_reviews_us_Books_v1_02.tsv
+   98  stat amazon_reviews_us_Books_v1_02.tsv
+   99  grep -i great amazon_reviews_us_Books_v1_02.tsv
+  100  ls
+  101  grep -i great 
+  102  grep -o -i great amazon_reviews_us_Books_v1_02.tsv | wc -l
+  103  script a1.txt
+  104  less a1.txt
+  105  vi a1.txt
+  106  nano a1.txt
+  107  ls
+  108  vi a1.txt
+  109  nano a1.txt
+  110  cd
+  111  cd ..
+  112  ls
+  113  cd home
+  114  ls
+  115  nano a1.txt
+  116  cd keskin
+  117  nano a1.txt
+  118  cd ..
+  119  cd
+  120  nano a1.txt
+  121  egrep -i "^keskin" /etc/group
+  122  egrep -i "^(keskin|sudo)" /etc/group
+  123  nano a1.txt
+  124  keskin@f6linux6:~$ egrep -i "^keskin" /etc/group
+  125  keskin:x:1001:
+  126  nano a1.txt
+  127  grep -o -i great amazon_reviews_us_Books_v1_02.tsv | wc -l
+  128  grep -c -i great amazon_reviews_us_Books_v1_02.tsv | wc -l
+  129  grep -i great amazon_reviews_us_Books_v1_02.tsv | wc -l
+  130  grep -i "great" amazon_reviews_us_Books_v1_02.tsv | wc -l
+  131  nano a1.txt
+  132  git init
+  133  git add a1.txt
+  134  git commit -m "Committing text file a1.txt, output of console annotated with related questions"
+  135  git remote add origin https://github.com/evrenke/CS185Assignment1.git
+  136  git remote set-url origin https://github.com/evrenke/CS185Assignment1.git
+  137  git push origin master
+  138  git config --global user.name evrenke
+  139  git config --global user.password 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
+  140  git push origin master
+  141  exit
+  142  script w3.txt
+  143  help sort
+  144  ls
+  145  nano  amazon_reviews_us_Books_v1_02.tsv
+  146  nano  amazon_reviews_us_Books_v1_02
+  147  script w3.txt
+  148  ls
+  149  sort -k 2n amazon_reviews_us_Books_v1_02.tsv | uniq -c | sort -k 1n amazon_reviews_us_Books_v1_02.tsv | head 3 amazon_reviews_us_Books_v1_02.tsv
+  150  sort -k 2n amazon_reviews_us_Books_v1_02.
+  151  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | uniq -c | sort -nk1 amazon_reviews_us_Books_v1_02.tsv | head 3 amazon_reviews_us_Books_v1_02.tsv
+  152  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | uniq -c | sort -nk1 amazon_reviews_us_Books_v1_02.tsv | head -n 3 amazon_reviews_us_Books_v1_02.tsv
+  153  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | uniq -c | sort -nk1 | head -n 3 amazon_reviews_us_Books_v1_02.tsv
+  154  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | uniq -c | sort -nk1 | head -n 3
+  155  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | uniq -c | sort -nk1 amazon_reviews_us_Books_v1_02.tsv | head 3 amazon_reviews_us_Books_v1_02.tsv
+  156  script w3.txt
+  157  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | sort -nk1 | head -n 3
+  158  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | head -n 3
+  159  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | sort -n | head -n 3
+  160  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | sort -nr | head -n 3
+  161  nan
+  162  script w3.txt
+  163  ls
+  164  vi amazon_reviews_us_Books_v1_02.tsv
+  165  ls
+  166  nano amazon_reviews_us_Books_v1_02.tsv
+  167  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | sort -nr | head -n 3
+  168  script w3.txt
+  169  ls
+  170  nano amazon_Reviews_us_Books_v1_02.tsv
+  171  nano amazon_reviews_us_Books_v1_02.tsv
+  172  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | sort -nr | head -n 3
+  173  sort -nk4 amazon_reviews_us_Books_v1_02.tsv| cut -f 4 | uniq -c | sort -nr | head -n 3
+  174  ls
+  175  nano amazon_reviews_us_Books_v1_02.tsv
+  176  sort -nk2 amazon_reviews_us_Books_v1_02.tsv| cut -f 2 | uniq -c | sort -nr | head -n 3
+  177  sort -nk4 amazon_reviews_us_Books_v1_02.tsv| cut -f 4 | uniq -c | sort -nr | head -n 3
+  178  sort -nk9 amazon_reviews_us_Books_v1_02.tsv | cut -f 9 | uniq -c | sort -nr | head
+  179  nano amazon_reviews_us_Books_v1_02.tsv
+  180  sort -nk9 amazon_reviews_us_Books_v1_02.tsv | cut -f 9 | uniq -c | sort -nr
+  181  sort -nk9 amazon_reviews_us_Books_v1_02.tsv | cut -f 9 | uniq -c
+  182  cut -f 9 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c
+  183  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2 | uniq -c | sort -nr | head -n 3
+  184  sort -nk4 amazon_reviews_us_Books_v1_02.tsv | cut -f 4 | uniq -c | sort -nr | head -n 3
+  185  cut -f 9 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c
+  186  script w3.txt
+  187  history > cmds.log
+  188  git add cmds.log w3.txt
+  189  git push origin master
+  190  error: failed to push some refs to 'https://github.com/evrenke/CS185Worksheet3.git'
+  191  git push origin master --force
+  192  git init
+  193  git add cmds.log w3.txt
+  194  git commit -m "Committing worksheet 3 console output and command log"
+  195  git remote set_url https://github.com/evrenke/CS185Worksheet3.git
+  196  git push origin main --force
+  197  git push origin main
+  198  git push origin master
+  199  ls
+  200  nano amazon_reviews_us_Books_v1_02.tsv
+  201  exit
+  202  ls\
+  203  ls
+  204  nano amazon_reviews_us_Books_v1_02.tsv
+  205  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | nano
+  206  ls
+  207  nano amazon_reviews_us_Books_v1_02.tsv
+  208  exit
+  209  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 |  egrep '15437121\b * | cut -f 1 > CUSTOMERS/15437121.txt
+  210  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 |  egrep '15437121\b' * | cut -f 1 > CUSTOMERS/15437121.txt
+  211  mkdir CUSTOMERS
+  212  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 |  egrep '15437121\b' * | cut -f 1 > CUSTOMERS/15437121.txt
+  213  ls
+  214  cd CUSTOMERS
+  215  ls
+  216  nano 15437121.txt
+  217  rm 15437121.txt
+  218  cd ..
+  219  ls
+  220  touch CUSTOMERS/15437121.txt
+  221  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 |  egrep '15437121\b' * | cut -f 1 > CUSTOMERS/15437121.txt
+  222  cd CUSTOMERS
+  223  nano 15437121.txt
+  224  rm 15437121.txt
+  225  cd ..
+  226  touch CUSTOMERS/15437121.txt
+  227  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 |  egrep 15437121 | cut -f 2 > CUSTOMERS/15437121.txt
+  228  cd CUSTOMERS
+  229  nano 15437121.txt
+  230  OC
+  231  cd CUSTOMERS
+  232  nano 15437121.txt
+  233  cd
+  234  touch CUSTOMERS/50732546.txttouch CUSTOMERS/50732546.txttouch CUSTOMERS/50732546.txttouch CUSTOMERS/50732546.txttouch CUSTOMERS/50732546.txtvvv   
+  235  mkdir {CUSTOMERS, PRODUCTS}
+  236  touch CUSTOMERS/15437121.txt
+  237  ls
+  238  script ws4.txt
+  239  mkdir CUSTOMERS
+  240  mkdir PRODUCTS
+  241  touch CUSTOMERS/15437121.txt
+  242  touch CUSTOMERS/50732546.txt
+  243  touch CUSTOMERS/12076615.txt
+  244  touch PRODUCTS/56191234.txt
+  245  touch PRODUCTS/702385650.txt
+  246  touch PRODUCTS/635714194.txt
+  247  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 |  egrep 15437121 | cut -f 2 > CUSTOMERS/15437121.txt
+  248  cd CUSTOMERS
+  249  ls
+  250  cd
+  251  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 |  egrep 50732546 | cut -f 2 > CUSTOMERS/50732546.txt
+  252  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 |  egrep 12076615 | cut -f 2 > CUSTOMERS/12076615.txt
+  253  cut -f 4,9 | egrep 56191234 | cut -f 2 > PRODUCTS/56191234 .txt
+  254  cut -f 4,9 | egrep 56191234 | cut -f 2 > PRODUCTS/56191234.txt
+  255  mkdir CUSTOMERS
+  256  mkdir PRODUCTS
+  257  touch CUSTOMERS/15437121.txt
+  258  touch CUSTOMERS/50732546.txt
+  259  touch CUSTOMERS/12076615.txt
+  260  touch PRODUCTS/56191234.txt
+  261  touch PRODUCTS/702385650.txt
+  262  touch PRODUCTS/635714194.txt
+  263  cut -f 2,9 | egrep 15437121 | cut -f 2 > CUSTOMERS/15437121.txt
+  264  mkdir CUSTOMERS
+  265  mkdir PRODUCTS
+  266  touch CUSTOMERS/15437121.txt
+  267  touch CUSTOMERS/50732546.txt
+  268  touch CUSTOMERS/12076615.txt
+  269  touch PRODUCTS/56191234.txt
+  270  touch PRODUCTS/702385650.txt
+  271  touch PRODUCTS/635714194.txt
+  272  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 | egrep 15437121 | cut -f 2 > CUSTOMERS/15437121.txt
+  273  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 | egrep 50732546 | cut -f 2 > CUSTOMERS/50732546.txt
+  274  sort -nk2 amazon_reviews_us_Books_v1_02.tsv | cut -f 2,9 | egrep 12076615 | cut -f 2 > CUSTOMERS/12076615.txt
+  275  sort -nk4 amazon_reviews_us_Books_v1_02.tsv | cut -f 4,9 | egrep 56191234 | cut -f 2 > PRODUCTS/56191234 .txt
+  276  sort -nk4 amazon_reviews_us_Books_v1_02.tsv | cut -f 4,9 | egrep 56191234 | cut -f 2 PRODUCTS/56191234.txt
+  277  sort -nk4 amazon_reviews_us_Books_v1_02.tsv | cut -f 4,9 | egrep 56191234 | cut -f 2 > PRODUCTS/56191234.txt
+  278  sort -nk4 amazon_reviews_us_Books_v1_02.tsv | cut -f 4,9 | egrep 702385650 | cut -f 2 > PRODUCTS/702385650.txt
+  279  sort -nk4 amazon_reviews_us_Books_v1_02.tsv | cut -f 4,9 | egrep 635714194 | cut -f 2 > PRODUCTS/635714194.txt
+  280  awk '
+  281      NR>=1{
+  282          sum[0]   += $1
+  283          sumSquared[0] += $1 * $1
+  284          count[0] += 1
+  285      }
+  286      END{
+  287          print "mean = " sum[0] / count[0] " variance = " ((sum[0]*sum[0]) - sumSquared[0])/(count[0]);
+  288      }
+  289  '  CUSTOMERS/15437121.txt
+  290  awk '
+  291      NR>=1{
+  292          sum[0]   += $1
+  293          sumSquared[0] += $1 * $1
+  294          count[0] += 1
+  295      }
+  296      END{
+  297          print "mean = " sum[0] / count[0] " variance = " ((sum[0]*sum[0]) - sumSquared[0])/(count[0]);
+  298      }
+  299  '  CUSTOMERS/50732546.txt
+  300  awk '
+  301      NR>=1{
+  302          sum[0]   += $1
+  303          sumSquared[0] += $1 * $1
+  304          count[0] += 1
+  305      }
+  306      END{
+  307          print "mean = " sum[0] / count[0] " variance = " ((sum[0]*sum[0]) - sumSquared[0])/(count[0]);
+  308      }
+  309  '  CUSTOMERS/12076615.txt
+  310  awk '
+  311      NR>=1{
+  312          sum[0]   += $1
+  313          sumSquared[0] += $1 * $1
+  314          count[0] += 1
+  315      }
+  316      END{
+  317          print "mean = " sum[0] / count[0] " variance = " ((sum[0]*sum[0]) - sumSquared[0])/(count[0]);
+  318      }
+  319  '  PRODUCTS/56191234.txt
+  320  cd PRODUCTS
+  321  nano 56191234.txt
+  322  cd
+  323  awk '
+  324      NR>=1{
+  325          sum[0]   += $1
+  326          sumSquared[0] += $1 * $1
+  327          count[0] += 1
+  328      }
+  329      END{
+  330          print "mean = " sum[0] / count[0] " variance = " ((sum[0]*sum[0]) - sumSquared[0])/(count[0]);
+  331      }
+  332  '  PRODUCTS/702385650.txt
+  333  cd PRODUCTS
+  334  nano 702385650.txt
+  335  cd
+  336  awk '
+  337      NR>=1{
+  338          sum[0]   += $1
+  339          sumSquared[0] += $1 * $1
+  340          count[0] += 1
+  341      }
+  342      END{
+  343          print "mean = " sum[0] / count[0] " variance = " ((sum[0]*sum[0]) - sumSquared[0])/(count[0]);
+  344      }
+  345  ' PRODUCTS/635714194.txt
+  346  script ws4.txt
+  347  history > cmds.log
+  348  git add cmds.log ws4.txt
+  349  git commit -m "Committing the command log and console output of worksheet 4"
+  350  git remote add origin https://github.com/evrenke/CS185Worksheet4.git
+  351  git remote set_url origin https://github.com/evrenke/CS185Worksheet4.git
+  352  git remote set-url origin https://github.com/evrenke/CS185Worksheet4.git
+  353  git push -u origin main
+  354  git push -u origin maaster
+  355  git push -u origin master
+  356  history > cmds.log
+  357  git add cmds.log
+  358  git commit "Committing correct command log"
+  359  git push -u origin master
+  360  git pull
+  361  history cmds.log
+  362  history > cmds.log
+  363  git commit -m "Committing correct command log history"
+  364  git push -u origin master
+  365  awk '
+  366      NR>=1{
+  367          sum[0]   += $1
+  368          sumSquared[0] += $1 * $1
+  369          count[0] += 1
+  370      }
+  371      END{
+  372          print "mean = " sum[0] / count[0] " variance = " ((sum[0]*sum[0]) - sumSquared[0])/(count[0]);
+  373      }
+  374  '  PRODUCTS/702385650.txt
+  375  history > cmds.log
+  376  nano cmds.log
+  377  exit
+  378  ls
+  379  exit
+  380  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  381  cut -f 6 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  382  exit
+  383  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  384  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  385  cut -f 6 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  386  touch customerIDs.txt
+  387  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | cut -f 1 | head -n 100 > customerIDs.txt
+  388  INPUTFILE="customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$INPUTFILE"
+  389  touch productIDs.txt
+  390  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | cut -f 1 | head -n 100 > productIDs.txt
+  391  INPUTFILE="productIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "PRODUCTS/$line.txt"; done < "$INPUTFILE"
+  392  alias l="ls -latr"
+  393  alias w="ls -la | wc"
+  394  vim ~/.bashrc
+  395  cd CUSTOMERS
+  396  w
+  397  cd
+  398  cd PRODUCTS
+  399  w
+  400  cd
+  401  sudo apt install datamash
+  402  wget http://ftp.gnu.org/gnu/datamash/datamash-1.3.tar.gz
+  403  tar -xzf datamash-1.3.tar.gz
+  404  cd datamash-1.3
+  405  ./configure
+  406  make
+  407  make check
+  408  sudo make install
+  409  tmux
+  410  touch customerIDs.txt
+  411  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | head -n 100 >customerIDs.txt
+  412  awk {input = "customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv > CUSTOMERS/$line.txt; done < "$input"}
+  413  awk { input = "customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv > CUSTOMERS/$line.txt; done < "$input"}
+  414  awk '{ input = "customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv > CUSTOMERS/$line.txt; done < "$input"}'
+  415  awk '{ input = "customerIDs.txt"; 
+  416  while IFS= read -r line; 
+  417  do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv > CUSTOMERS/$line.txt; 
+  418  done < "$input"}'
+  419  awk '{ input = "customerIDs.txt"; 
+  420  while IFS= read -r line; 
+  421  do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > CUSTOMERS/$line.txt; 
+  422  done < "$input"}'
+  423  awk '{ while IFS= read -r line; 
+  424  do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > CUSTOMERS/$line.txt; 
+  425  done < "$input"}' customerIDs.txt
+  426  awk '{ 
+  427  while (IFS= read -r line) 
+  428  {
+  429  do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > CUSTOMERS/$line.txt; 
+  430  done < "$input"
+  431  }
+  432  }' customerIDs.txt
+  433  var = 3
+  434  VAR = 3
+  435  TEST=3
+  436  INPUT = "customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > CUSTOMERS/$line.txt; done < "$INPUT"
+  437  echo TEST
+  438  echo$TEST
+  439  echo $TEST
+  440  INPUTFILE="customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > CUSTOMERS/$line.txt; done < "$INPUTFILE"\
+  441  ls
+  442  cd CUSTOMERS
+  443  ls
+  444  cd
+  445  ls
+  446  cd CUSTOMERS
+  447  ls
+  448  INPUTFILE="customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > CUSTOMERS/$line.txt; done < "$INPUTFILE"
+  449  INPUTFILE="customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$INPUTFILE"
+  450  cd
+  451  INPUTFILE="customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$INPUTFILE"
+  452  ls
+  453  cd CUSTOMERS
+  454  ls
+  455  nano "470 51142763.txt"
+  456  nano '    470 51142763.txt'
+  457  cd
+  458  alias l="ls-latr"
+  459  l
+  460  alias l="ls -latr"
+  461  l
+  462  alias w="ls -la | wc"
+  463  w
+  464  ls
+  465  cd
+  466  ls
+  467  vim ~/.bashrc
+  468  cd CUSTOMERS
+  469  w
+  470  cd
+  471  cd PRODUCTS
+  472  w
+  473  ls
+  474  help make
+  475  cd
+  476  cd ~/PRODUCTS
+  477  cd
+  478  cd CUSTOMERS
+  479  for FILE in *; do datamash mean 1; done
+  480  cd
+  481  ls
+  482  cd PRODUCTS
+  483  ls
+  484  cd
+  485  cd CUSTOMERS
+  486  ls
+  487  cd
+  488  rm -r CUSTOMERS
+  489  rm -r PRODUCTS
+  490  mkdir CUSTOMERS
+  491  mkdir PRODUCTS
+  492  script a2.txt
+  493  exit
+  494  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  495  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  496  cut -f 6 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  497  touch customerIDs.txt
+  498  rm customerIDs.txt
+  499  touch customerIDs.txt
+  500  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | cut -f 1 | head -n 100 > customerIDs.txt
+  501  INPUTFILE="customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$INPUTFILE"
+  502  ls CUSTOMERS
+  503  ls
+  504  mkdir CUSTOMERS
+  505  INPUTFILE="customerIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$INPUTFILE"
+  506  rm productIDs.txt
+  507  touch productIDs.txt
+  508  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | cut -f 1 | head -n 100 > productIDs.txt
+  509  mkdir PRODUCTS
+  510  INPUTFILE="productIDs.txt"; while IFS= read -r line; do grep "TAB$lineTAB" amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "PRODUCTS/$line.txt"; done < "$INPUTFILE"
+  511  alias l="ls -latr"
+  512  alias w="ls -la | wc"
+  513  vim ~/.bashrc
+  514  cd CUSTOMERS
+  515  w
+  516  cd
+  517  cd PRODUCTS
+  518  w
+  519  cd
+  520  cd ~/datamash-1.3
+  521  for i in {1..1000} ; do echo $i $i ;done >> c.txt
+  522  ./datamash  -W ppearson 1:2 < c.txt
+  523  ./datamashtxt
+  524  ls ../CUSTOMERS
+  525  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/470 51142763.txt
+  526  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'470 51142763.txt'
+  527  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    470 51142763.txt'
+  528  for FILE in ../CUSTOMERS; echo FILE; ./datamash  -W ppearson 1:2 ; done
+  529  echo
+  530  ls
+  531  echo TODO
+  532  for FILE in ../CUSTOMERS; echo FILE; ./datamash  -W ppearson 1:2 ; done
+  533  for FILE in ../CUSTOMERS; do echo FILE; ./datamash  -W ppearson 1:2 ; done
+  534  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 ; done
+  535  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 FILE ; done
+  536  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 < FILE ; done
+  537  for FILE in ../CUSTOMERS; do echo $FILE; ./datamash  -W ppearson 1:2 < $FILE ; done
+  538  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  $FILE ; done
+  539  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+  540  ./datamash  -W ppearson 1:2 < ..CUSTOMERS/'    470 51142763.txt'
+  541  ls ../CUSTOMERS
+  542  ./datamash  -W ppearson 1:2 < ..CUSTOMERS/'    470 51142763.txt'
+  543  ./datamash  -W ppearson 1:2 < '..CUSTOMERS/'    470 51142763.txt''
+  544  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    470 51142763.txt'
+  545  cd
+  546  cd CUSTOMERS
+  547  nano '    470 51142763.txt'
+  548  cd
+  549  cd datamash-1.3
+  550  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/'    471 42800127.txt'
+  551  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+  552  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  $FILE ; done
+  553  for FILE in ../CUSTOMERS/*; do echo $FILE; ./datamash  -W ppearson 1:2 <  '$FILE' ; done
+  554  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+  555  ./datamash  -W ppearson 1:2 < c.txt
+  556  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  ../CUSTOMERS/$FILE" ; done
+  557  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  ../CUSTOMERS/"$FILE" ; done
+  558  ../CUSTOMERS/   1797 50776149.txt
+  559  0.0003337588227034
+  560  ../CUSTOMERS/   2215 45041039.txt
+  561  0.0003337588227034
+  562  ../CUSTOMERS/   2664 52615377.txt
+  563  0.0003337588227034
+  564  ../CUSTOMERS/   9964 50732546.txt
+  565  0.0003337588227034
+  566  ../CUSTOMERS/  21922 50122160.txt
+  567  0.0003337588227034
+  568  cd
+  569  cd CUSTOMERS
+  570  ls
+  571  nano '  21922 50122160.txt'
+  572  cd
+  573  ls
+  574  cd CUSTOMERS
+  575  nano '  21922 50122160.txt'
+  576  nano '   9964 50732546.txt'
+  577  wc '   9964 50732546.txt'
+  578  wc '  21922 50122160.txt'
+  579  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  580  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  581  cut -f 6 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
+  582  touch customerIDs.txt
+  583  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 100 > customerIDs.txt
+  584  input="customerIDs.txt"; while read -r line; do echo $line; awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
+  585  mkdir CUSTOMERS
+  586  mkdir PRODUCTS
+  587  input="customerIDs.txt"; while read -r line; do echo $line; awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
+  588  input="customerIDs.txt"; while read -r line; do awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
+  589  touch productIDs.txt
+  590  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}'| head -n 100 > productIDs.txt
+  591  input="productIDs.txt"; while read -r line; do awk -v "ID=$line" '$4 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "PRODUCTS/$line.txt"; done < "$input"
+  592  alias l="ls -latr"
+  593  alias w="ls -la | wc"
+  594  vim ~/.bashrc
+  595  cd CUSTOMERS
+  596  w
+  597  cd
+  598  cd PRODUCTS
+  599  w
+  600  cd
+  601  for i in {1..1000} ; do echo $i $i ;done >> c.txt
+  602  datamash-1.3/datamash  -W ppearson 1:2 < c.txt
+  603  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+  604  for FILE in CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
+  605  for FILE in CUSTOMERS/*; do echo "$FILE"; datamash-1.3/datamash  -W ppearson 1:2 <  "$FILE" ; done
+  606  for FILE in CUSTOMERS/*; do echo "$FILE";  datamash-1.3/datamash mean 2 < "$FILE" ; done
+  607  for FILE in PRODUCTS/*; do echo "$FILE";  datamash-1.3/datamash mean 1 < "$FILE"; done
+  608  script a2.txt
+  609  history > cmds.log
+  610  git add a2.txt cmds.log
+  611  git commit -m "Committing assignment 2 console output and command history"
+  612  git push origin master
+  613  git remote seturl origin https://github.com/evrenke/CS185Assignment2.git
+  614  git push origin master
+  615  git remote set-url origin https://github.com/evrenke/CS185Assignment2.git
+  616  git push origin master
+  617  history > cmds.log
+  618  nano cmds.log
+  619  history help
+  620  help history
+  621  history -a
+  622  script ws5.txt
+  623  help history
+  624  history -n
+  625  rm customerIDs.txt
+  626  touch customerIDs.txt
+  627  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 1000 > customerIDs.txt
+  628  input="customerIDs.txt"; while read -r line; do awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
+  629  history > cmds.log
