@@ -1,119 +1,3 @@
-  563  0.0003337588227034
-  564  ../CUSTOMERS/   9964 50732546.txt
-  565  0.0003337588227034
-  566  ../CUSTOMERS/  21922 50122160.txt
-  567  0.0003337588227034
-  568  cd
-  569  cd CUSTOMERS
-  570  ls
-  571  nano '  21922 50122160.txt'
-  572  cd
-  573  ls
-  574  cd CUSTOMERS
-  575  nano '  21922 50122160.txt'
-  576  nano '   9964 50732546.txt'
-  577  wc '   9964 50732546.txt'
-  578  wc '  21922 50122160.txt'
-  579  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
-  580  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
-  581  cut -f 6 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq | wc
-  582  touch customerIDs.txt
-  583  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 100 > customerIDs.txt
-  584  input="customerIDs.txt"; while read -r line; do echo $line; awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
-  585  mkdir CUSTOMERS
-  586  mkdir PRODUCTS
-  587  input="customerIDs.txt"; while read -r line; do echo $line; awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
-  588  input="customerIDs.txt"; while read -r line; do awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
-  589  touch productIDs.txt
-  590  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}'| head -n 100 > productIDs.txt
-  591  input="productIDs.txt"; while read -r line; do awk -v "ID=$line" '$4 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "PRODUCTS/$line.txt"; done < "$input"
-  592  alias l="ls -latr"
-  593  alias w="ls -la | wc"
-  594  vim ~/.bashrc
-  595  cd CUSTOMERS
-  596  w
-  597  cd
-  598  cd PRODUCTS
-  599  w
-  600  cd
-  601  for i in {1..1000} ; do echo $i $i ;done >> c.txt
-  602  datamash-1.3/datamash  -W ppearson 1:2 < c.txt
-  603  for FILE in ../CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
-  604  for FILE in CUSTOMERS/*; do echo "$FILE"; ./datamash  -W ppearson 1:2 <  "$FILE" ; done
-  605  for FILE in CUSTOMERS/*; do echo "$FILE"; datamash-1.3/datamash  -W ppearson 1:2 <  "$FILE" ; done
-  606  for FILE in CUSTOMERS/*; do echo "$FILE";  datamash-1.3/datamash mean 2 < "$FILE" ; done
-  607  for FILE in PRODUCTS/*; do echo "$FILE";  datamash-1.3/datamash mean 1 < "$FILE"; done
-  608  script a2.txt
-  609  history > cmds.log
-  610  git add a2.txt cmds.log
-  611  git commit -m "Committing assignment 2 console output and command history"
-  612  git push origin master
-  613  git remote seturl origin https://github.com/evrenke/CS185Assignment2.git
-  614  git push origin master
-  615  git remote set-url origin https://github.com/evrenke/CS185Assignment2.git
-  616  git push origin master
-  617  history > cmds.log
-  618  nano cmds.log
-  619  history help
-  620  help history
-  621  history -a
-  622  rm customerIDs.txt
-  623  touch customerIDs.txt
-  624  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 1000 > customerIDs.txt
-  625  input="customerIDs.txt"; while read -r line; do awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
-  626  touch customerIDs.txt
-  627  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 1000 > customerIDs.txt
-  628  input="customerIDs.txt"; while read -r line; do awk -v "ID=$line" '$2 == ID' amazon_reviews_us_Books_v1_02.tsv | cut -f 8,9 > "CUSTOMERS/$line.txt"; done < "$input"
-  629  history > cmds.log
-  630  git add w5.txt cmds.log
-  631  git add ws5.txt
-  632  git commit -m "Commiting worksheet5 console output and command log"
-  633  git remote set-url origin https://github.com/evrenke/CS185Worksheet5.git
-  634  git push origin master
-  635  git add ws5.txt
-  636  git commit -m "Commiting worksheet5 console output and command log"
-  637  git add ws5.txt cmds.log
-  638  git commit -m "Commiting worksheet5 console output and command log"
-  639  nano cmds.log
-  640  exit
-  641  ls
-  642  time ls > c.txt
-  643  nano c.txt
-  644  ls > c.txt
-  645  cat "time ls"
-  646  "time ls" > c.txt
-  647  man time
-  648  cd PRODUCTS
-  649  ls
-  650  nano 0060193395.txt
-  651  cd
-  652  now=$date
-  653  cp PRODUCTS/0060193395.txt PRODUCTS/0060193395.$date.txt
-  654  ln -s PRODUCTS/0060193395.$date.txt PRODUCTS/0060193395.LATEST.txt
-  655  touch cronfile
-  656  echo "* * * * * awk '{sum +=$1} END { if (NR > 0) print sum / NR }' PRODUCTS/0060193395.LATEST.txt >PRODUCTS/0060193395.AVGRATING.txt 2>&1" > cronfile
-  657  crontab cronfile
-  658  crontab -l
-  659  nano PRODUCTS/0060193395.AVGRATING.txt
-  660  now=$(date)
-  661  cp PRODUCTS/0060193395.txt PRODUCTS/0060193395.$date.txt
-  662  echo "3 2" >> PRODUCTS/0060193395.$date.txt
-  663  cp PRODUCTS/0060193395.txt PRODUCTS/0060193395.$date.txt
-  664  echo "3 2" >> PRODUCTS/0060193395.$date.txt
-  665  touch cronfile
-  666  echo "* * * * * awk '{sum += $1} END { if (NR > 0) print sum / NR }' PRODUCTS/0060193395.LATEST.txt >PRODUCTS/0060193395.AVGRATING.txt 2>&1" > cronfile
-  667  crontab cronfile
-  668  nano PRODUCTS/0060193395.AVGRATING.txt
-  669  now=$(date)
-  670  cp PRODUCTS/0060193395.txt PRODUCTS/0060193395.$date.txt
-  671  echo "3 2" >> PRODUCTS/0060193395.$date.txt
-  672  touch cronfile
-  673  echo "* * * * * awk '{sum += \$1} END { if (NR > 0) print sum / NR }' PRODUCTS/0060193395.LATEST.txt >PRODUCTS/0060193395.AVGRATING.txt 2>&1" > cronfile
-  674  crontab cronfile
-  675  nano PRODUCTS/0060193395.AVGRATING.txt
-  676  ls
-  677  ls PRODUCTS
-  678  script ws6.txt
   679  rm PRODUCTS/0060193395.LATEST.txt
   680  script ws6.txt
   681   PRODUCTS/0060193395.LATEST.txt
@@ -998,3 +882,119 @@
  1560  awk '$1 == 1' "043935806X.REVIEWSANDHELPFULNESS.txt" | cut -f 2 | sed 's/,//g;s/\.//g;s/\;//g;s/\<and\>//g;s/\<or\>//g;s/\<if\>//g;s/\<in\>//g;s/\<it\>//g;s/\<.\>//g;s/\<..\>//g' | sed 's/<[^>]*>//g' | sed -E -e 's/[[:blank:]]+/\n/g' | sort -r | uniq -c | sort -nrk 1 | head -n 10
  1561  awk '$1 == 0' "043935806X.REVIEWSANDHELPFULNESS.txt" | cut -f 2 | sed 's/,//g;s/\.//g;s/\;//g;s/\<and\>//g;s/\<or\>//g;s/\<if\>//g;s/\<in\>//g;s/\<it\>//g;s/\<.\>//g;s/\<..\>//g' | sed 's/<[^>]*>//g' | sed -E -e 's/[[:blank:]]+/\n/g' | sort -r | uniq -c | sort -nrk 1 | head -n 10
  1562  history > cmds.log
+ 1563  ls
+ 1564  rm customerMedians.txt
+ 1565  rm productMedians.txt
+ 1566  script a3.txt
+ 1567  nano productIDS.txt
+ 1568  ls
+ 1569  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 100 > productIDs.txt
+ 1570  nano productIDS.txt
+ 1571  cut -f 4 amazon_reviews_us_Books_v1_02.tsv | sort -n | uniq -c | sort -nr | awk '{print $2}' | head -n 100
+ 1572  nano productIDs.txt
+ 1573  script a3.txt
+ 1574  ls
+ 1575  rm customerCorrolations.txt
+ 1576  rm productCorrolations.txt
+ 1577  script a3.txt
+ 1578  ls PRODUCTS
+ 1579  ls
+ 1580  ls PRODUCTS
+ 1581  input="productIDs.txt"; while read -r line; do awk  -F"\t" -v "ID=$line" '$4 == ID' amazon_reviews_us_Books_v1_02.tsv > "PRODUCTS/$line.txt"; done < "$input"
+ 1582  ls PRODUCTS
+ 1583  input="productIDs.txt"; while read -r line; do awk -F"\t" ' { if($10 !=0) a[i++]=$9 / $10; else a[i++]=0; } END { x=int((i+1)/2); if (x < (i+1)/2) print (a[x-1]+a[x])/2, "\t", '$line'; else print a[x-1], "\t", '$line'; }' "PRODUCTS/$line.txt" >> productMedians.txt; done < "$input"
+ 1584  input="productMedians.txt"; while read -r median id; do awk -F"\t" '{ if ($10 != 0 && ($9 / $10) >= '$median') print 1," ", $8; else print 0, " ", $8; }' "PRODUCTS/$id.txt" > "PRODUCTS/$id.BINARY.txt"; done < "$input"
+ 1585  nano productMedians.txt
+ 1586  nano productIDs.txt
+ 1587  nano customerMedians.txt
+ 1588  ls PRODUCTS
+ 1589  nano PRODUCTS/0451524934.txt~
+ 1590  nano PRODUCTS/0439784549.txt
+ 1591  input="productMedians.txt"; while read -r median id; do awk -F"\t" '{ if ($10 != 0 && ($9 / $10) >= '$median') print 1," ", $8; else print 0, " ", $8; }' "PRODUCTS/$id.txt" > "PRODUCTS/$id.BINARY.txt"; done < "$input"
+ 1592  input="productIDs.txt"; while read -r line; do awk -F"\t" ' { if($10 !=0) a[i++]=$9 / $10; else a[i++]=0; } END { x=int((i+1)/2); if (x < (i+1)/2) print (a[x-1]+a[x])/2, "\t", '$line'; else print a[x-1], "\t", '$line'; }' "PRODUCTS/$line.txt" >> productMedians.txt; done < "$input"
+ 1593  nano productMedians.txt
+ 1594  ls
+ 1595  ls PRODUCTS
+ 1596  nano PRODUCTS/038529929X.txt
+ 1597  input="productMedians.txt"; while read -r median id; do awk -F"\t" '{ if ($10 != 0 && ($9 / $10) >= '$median') print 1," ", $8; else print 0, " ", $8; }' "PRODUCTS/$id.txt"; done < "$input"
+ 1598  nano productMedians.txt
+ 1599  0.75     77299496
+ 1600  input="productIDs.txt"; while read -r line; do awk -F"\t" ' { if($10 !=0) a[i++]=$9 / $10; else a[i++]=0; } END { x=int((i+1)/2); if (x < (i+1)/2) print (a[x-1]+a[x])/2, "\t", '$line'; else print a[x-1], "\t", '$line'; }' "PRODUCTS/$line.txt" >> productMedians.txt; done < "$input"
+ 1601  0.75     77299496
+ 1602  nano productMedians.txt
+ 1603  nano productIDs.txt
+ 1604  input="productIDs.txt"; while read -r line; do awk -F"\t" ' { print '$line'; }'; done < "$input"
+ 1605  nano productIDs.txt
+ 1606  input="productIDs.txt"; while read -r line; do awk -F"\t" ' { print "$line"; }'; done < "$input"
+ 1607  nano customerMedians.txt
+ 1608  input="productIDs.txt"; while read -r line; do awk -F"\t" ' { print '$line'; }'; done < "$input"
+ 1609  input="productIDs.txt"; while read -r line; do awk -F"\t" '{ print '$line'; }'; done < "$input"
+ 1610  input="productIDs.txt"; while read -r line; do awk -F"\t" '{ print '$0'; }'; done < "$input"
+ 1611  input="productIDs.txt"; while read -r line; do awk -F"\t" '{ print $0; }'; done < "$input"
+ 1612  input="productIDs.txt"; while read -r line; do awk -F"\t" '{ print $line; }'; done < "$input"
+ 1613  rm productMedians.txt
+ 1614  input="productIDs.txt"; while read -r line; do awk -F"\t" ' { if($10 !=0) a[i++]=$9 / $10; else a[i++]=0; } END { x=int((i+1)/2); if (x < (i+1)/2) print (a[x-1]+a[x])/2, "\t", $line; else print a[x-1], "\t", $line; }' "PRODUCTS/$line.txt" >> productMedians.txt; done < "$input"
+ 1615  input="productMedians.txt"; while read -r median id; do awk -F"\t" '{ if ($10 != 0 && ($9 / $10) >= '$median') print 1," ", $8; else print 0, " ", $8; }' "PRODUCTS/$id.txt" > "PRODUCTS/$id.BINARY.txt"; done < "$input"
+ 1616  ls
+ 1617  ls PRODUCTS
+ 1618  nano productMedians.txt
+ 1619  rm productMedians.txt
+ 1620  rm -r PRODUCTS
+ 1621  mkdir PRODUCTS
+ 1622  nano productIDs.txt
+ 1623  input="productIDs.txt"; while read -r line; do awk  -F"\t" -v "ID=$line" '$4 == ID' amazon_reviews_us_Books_v1_02.tsv > "PRODUCTS/$line.txt"; done < "$input"
+ 1624  input="productIDs.txt"; while read -r line; do awk -F'\t' -v "ID=$line" '{ if($10 != 0) a[i++]=$9 / $10; else a[i++]=0; } END { x=int((i+1)/2); if (x < (i+1)/2) print (a[x-1]+a[x])/2, "\t", ID; else print a[x-1], "\t", ID; }' "PRODUCTS/$line.txt" >> productMedians.txt; done < "$input"
+ 1625  nano productMedians.txt
+ 1626  script a3.txt
+ 1627  git init
+ 1628  git add a3.txt cmds.log "CUSTOMERS/highest.BINARYSORTEDRATINGS.txt" "CUSTOMERS/highest.BINARYSORTEDHELPFULNESS.txt"
+ 1629  git add  "PRODUCTS/highest.BINARYSORTEDRATINGS.txt"  "PRODUCTS/highest.BINARYSORTEDHELPFULNESS.txt"
+ 1630  git commit -m "Committing assignment 3 console output and command logs, and the data for plotting top customer and product rating and helpfulness data"
+ 1631  git remote add origin https://github.com/evrenke/CS185Assignment3.git
+ 1632  git remote set_url origin https://github.com/evrenke/CS185Assignment3.git
+ 1633  git remote set-url origin https://github.com/evrenke/CS185Assignment3.git
+ 1634  git push -u origin master
+ 1635  exit
+ 1636  gnuplot
+ 1637  apt install gnuplot-qt   # version 5.2.8+dfsg1-2
+ 1638  wget http://ftp.cstug.cz/pub/CTAN/graphics/gnuplot/5.2.6/gnuplot-5.2.6.tar.gz
+ 1639   gunzip gnuplot-5.2.6.tar.gz 
+ 1640   gzip -d gnuplot-5.2.6.tar.gz 
+ 1641  gzip -d gnuplot-5.2.6.tar.gz 
+ 1642  ls
+ 1643  gzip -d gnuplot-5.2.6.tar.gz
+ 1644  tar xvf gnuplot-5.2.6.tar
+ 1645  ls
+ 1646   cd gnuplot-5.2.6/
+ 1647  cd gnuplot-5.2.6/
+ 1648  ./configure
+ 1649  make
+ 1650  make check
+ 1651  ./src/gnuplot
+ 1652  cd
+ 1653  exit
+ 1654  nano "CUSTOMERS/51065232.BINARY.txt"
+ 1655  nano  "CUSTOMERS/highest.BINARYSORTED.txt"
+ 1656  awk '{print NR, $2}' "PRODUCTS/highest.BINARYSORTED.txt" > "PRODUCTS/highest.BINARYSORTEDRATINGS.txt"
+ 1657  awk '{print NR, $2}' "CUSTOMERS/highest.BINARYSORTED.txt" > "CUSTOMERS/highest.BINARYSORTEDRATINGS.txt"
+ 1658  git init
+ 1659  git reset
+ 1660  git add CUSTOMERS/highest.BINARYSORTEDRATINGS.txt PRODUCTS/highest.BINARYSORTEDRATINGS.txt
+ 1661  git commit -m "Corrected ratings list for top customer and product"
+ 1662  git push -u origin master
+ 1663  git pull
+ 1664  git commit -m "Corrected ratings list for top customer and product"
+ 1665  git add CUSTOMERS/highest.BINARYSORTEDRATINGS.txt PRODUCTS/highest.BINARYSORTEDRATINGS.txt
+ 1666  git commit -m "Corrected ratings list for top customer and product"
+ 1667  git push -u origin master
+ 1668  exit
+ 1669  ls
+ 1670  nano amazon_reviews_us_Books_v1_02.tsv
+ 1671  script ws8.txt
+ 1672  awk -F '\t' '$12 == Y' > verified.txt
+ 1673  awk -F '\t' "$12 == Y" > verified.txt
+ 1674  awk -F"\t" -v "ID=Y" '$12 == ID' amazon_reviews_us_Books_v1_02.tsv > verified.txt
+ 1675  awk -F"\t" -v "ID=N" '$12 == ID' amazon_reviews_us_Books_v1_02.tsv > unverified.txt
+ 1676  cut -f 14 verified.txt | sed 's/,//g;s/\.//g;s/\;//g;s/\<and\>//g;s/\<or\>//g;s/\<if\>//g;s/\<in\>//g;s/\<it\>//g;s/\<.\>//g;s/\<..\>//g' | sed 's/<[^>]*>//g' | sed -E -e 's/[[:blank:]]+/\n/g' | sort -r | uniq -c | sort -nrk 1 | head -n 10
+ 1677  cut -f 14 unverified.txt | sed 's/,//g;s/\.//g;s/\;//g;s/\<and\>//g;s/\<or\>//g;s/\<if\>//g;s/\<in\>//g;s/\<it\>//g;s/\<.\>//g;s/\<..\>//g' | sed 's/<[^>]*>//g' | sed -E -e 's/[[:blank:]]+/\n/g' | sort -r | uniq -c | sort -nrk 1 | head -n 10
+ 1678  history > cmds.log
